@@ -44,6 +44,12 @@ def get_unique_job_types(path: str) -> List[str]:
         List of unique job types
     """
     # raise NotImplementedError
+    jobs = set(
+        [index['job_type'] for index in read(path) if index['job_type']]
+        )
+    return jobs
+
+# print(get_unique_job_types('data/jobs.csv'))
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
