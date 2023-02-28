@@ -16,7 +16,10 @@ def get_unique_industries(path: str) -> List[str]:
     list
         List of unique industries
     """
-    raise NotImplementedError
+    """ industry = set(
+        [index['industry'] for index in read(path) if index['industry']]
+        )
+    return industry """
 
 
 def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:

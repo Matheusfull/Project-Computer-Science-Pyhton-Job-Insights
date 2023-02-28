@@ -16,7 +16,7 @@ def get_max_salary(path: str) -> int:
     int
         The maximum salary paid out of all job opportunities
     """
-    raise NotImplementedError
+    # raise NotImplementedError
 
 
 def get_min_salary(path: str) -> int:
