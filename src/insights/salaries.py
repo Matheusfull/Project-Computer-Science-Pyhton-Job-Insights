@@ -34,7 +34,7 @@ def get_max_salary(path: str) -> int:
     return max
 
 
-print(get_max_salary('data/jobs.csv'))
+# print(get_max_salary('data/jobs.csv'))
 
 
 def get_min_salary(path: str) -> int:
@@ -52,7 +52,21 @@ def get_min_salary(path: str) -> int:
     int
         The minimum salary paid out of all job opportunities
     """
-    raise NotImplementedError
+    # raise NotImplementedError
+    salaries = []
+    min = 383416
+    salaries.append(
+        [unit['min_salary'] for unit in read(path) if unit['min_salary']]
+    )
+    # return salaries[0]
+    for salary in salaries[0]:
+        try:
+
+            if int(salary) < min:
+                min = int(salary)
+        except ValueError:
+            min
+    return min
 
 
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
