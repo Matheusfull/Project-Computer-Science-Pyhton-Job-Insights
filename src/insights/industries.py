@@ -44,4 +44,12 @@ def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
     list
         List of jobs with provided industry
     """
-    raise NotImplementedError
+    # raise NotImplementedError
+    filter_jobs = []
+    for job in jobs:
+        if job["industry"] == industry:
+            filter_jobs.append(job)
+    return filter_jobs
+
+
+# print(filter_by_industry(read('data/jobs.csv'), "NJfor Mondays"))
