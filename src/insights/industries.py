@@ -50,6 +50,3 @@ def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
         if job["industry"] == industry:
             filter_jobs.append(job)
     return filter_jobs
-
-
-# print(filter_by_industry(read('data/jobs.csv'), "NJfor Mondays"))
