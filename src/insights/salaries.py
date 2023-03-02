@@ -53,6 +53,7 @@ def get_min_salary(path: str) -> int:
         The minimum salary paid out of all job opportunities
     """
     # raise NotImplementedError
+
     salaries = []
     min = 383416
     salaries.append(
@@ -92,8 +93,23 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
         If `job["min_salary"]` is greather than `job["max_salary"]`
         If `salary` isn't a valid integer
     """
-    raise NotImplementedError
+    # raise NotImplementedError
 
+    """ max_salary = job["max_salary"]
+    min_salary = job["min_salary"] """
+    if "min_salary" not in job or "max_salary" not in job:
+        raise ValueError("Não há min_salary ou max_salary")
+    if ( type(job["max_salary"]) != int or type(job["min_salary"]) != int):
+        raise ValueError("Os valores precisam ser numéricos")
+    if int(job["min_salary"]) > int(job["max_salary"]):
+        raise ValueError("O valor mínimo é maior que o máximo")
+    if type(int(salary)) != int:
+        raise ValueError("O salário deve ser um número")
+
+    return int(job["min_salary"]) <= int(salary) <= int(job["max_salary"])    
+
+
+# print(matches_salary_range({"max_salary": 'abc', "min_salary": 0}, 500))
 
 def filter_by_salary_range(
     jobs: List[dict],
