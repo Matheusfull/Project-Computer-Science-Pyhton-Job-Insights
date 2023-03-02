@@ -99,13 +99,21 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
     min_salary = job["min_salary"] """
     if "min_salary" not in job or "max_salary" not in job:
         raise ValueError("Não há min_salary ou max_salary")
-    if (type(job["max_salary"]) != int or type(job["min_salary"]) != int):
-        raise ValueError("Os valores precisam ser numéricos")
+    # Preciso saber se o salário mínimo ou máximo são somente números, para
+    # isso usei o método str().isdigit()
+    # https://www.programiz.com/python-programming/methods/string/isdigit
+    if (
+        not str(job["min_salary"]).isdigit()
+        or not str(job["max_salary"]).isdigit()
+    ):
+        raise ValueError("Os valores precisam ser somente numéricos")
     if int(job["min_salary"]) > int(job["max_salary"]):
         raise ValueError("O valor mínimo é maior que o máximo")
-    if type(int(salary)) != int:
-        raise ValueError("O salário deve ser um número")
-
+    # Há números negativos, então vamos tirar o sinal só para verficar
+    # se é um número negativo e não uma coisa doida, tipo:
+    # -12adf - isso não é um número negativo.
+    if not str(salary).lstrip('-').isdigit():
+        raise ValueError("Salary isn't a valid integer")
     return int(job["min_salary"]) <= int(salary) <= int(job["max_salary"])
 
 
@@ -127,4 +135,12 @@ def filter_by_salary_range(
     list
         Jobs whose salary range contains `salary`
     """
-    raise NotImplementedError
+    # raise NotImplementedError
+    list_jobs = []
+    for job in jobs:
+        try:
+            if matches_salary_range(job, salary):
+                list_jobs.append(job)
+        except ValueError:
+            print(ValueError)
+    return list_jobs
