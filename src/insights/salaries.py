@@ -112,6 +112,7 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
     # Há números negativos, então vamos tirar o sinal só para verficar
     # se é um número negativo e não uma coisa doida, tipo:
     # -12adf - isso não é um número negativo.
+    # https://www.w3schools.com/python/ref_string_lstrip.asp
     if not str(salary).lstrip('-').isdigit():
         raise ValueError("Salary isn't a valid integer")
     return int(job["min_salary"]) <= int(salary) <= int(job["max_salary"])
