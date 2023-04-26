@@ -57,6 +57,8 @@
 
   - `python3 -m pip install -r dev-requirements.txt`
 
+  4. Agora só se divertir usando as funções criadas.
+
   </details>
 
 <!-- Olá, Tryber!
