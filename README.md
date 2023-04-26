@@ -45,9 +45,9 @@
 
   1. Clone o repositório
 
-  - Use o comando: `git clone git@github.com:Matheusfull/Project_Computer_Science_Job_Insights.git`.
+  - Use o comando: `git clone git@github.com:Matheusfull/Project-Computer-Science-Pyhton-Job-Insights.git`.
   - Entre na pasta do repositório que você acabou de clonar:
-    - `cd Project_Computer_Science_Job_Insights`
+    - `cd Project-Computer-Science-Pyhton-Job-Insights`
 
   2. Crie o ambiente virtual para o projeto
 
